@@ -4,7 +4,7 @@
   "description": "A frontend project template, by lmao",
   "main": "index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint src || exit 0",
+    "lint": "./node_modules/.bin/eslint . || exit 0",
     "test": "npm run lint && mocha",
     "build": "webpack --progress --colors -p",
     "serve": "webpack-dev-server",
@@ -29,6 +29,7 @@
     "css-loader": "^0.25.0",
     "eslint": "^3.7.1",
     "eslint-config-airbnb": "^12.0.0",
+    "eslint-config-lmao": "^1.0.0",
     "eslint-plugin-import": "^2.0.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
