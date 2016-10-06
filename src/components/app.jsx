@@ -14,6 +14,7 @@ export default class Application extends Component {
         />
         <div className="container">
           <h1>Ayyy lmao</h1>
+          <h2>Replace this element in src/components/app.jsx with your actual content!</h2>
         </div>
         <FloatingActionButton className="fab">
           <ContentAdd />
