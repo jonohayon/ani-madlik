@@ -33,6 +33,36 @@ h2 {
   bottom: 20px;
 }
 
-.gmnoprint {
-  display: none !important;
+.gmnoprint { display: none !important; }
+
+.rtl { direction: rtl; }
+
+.location-btn-cont {
+  height: calc(100% - 64px);
+  padding-top: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: {
+    direction: column;
+    wrap: wrap;
+  }
+}
+
+.location-btn span { font-weight: 700 !important; }
+
+.search-marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+  background-color: #fff;
+  color: #F8333C;
+  border: 2px solid #F8333C;
+  font: {
+    size: 17px;
+    family: 'Heebo', sans-serif;
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
