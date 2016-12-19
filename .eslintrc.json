@@ -1,3 +1,6 @@
 {
-  "extends": "lmao"
+  "extends": "lmao",
+  "globals": {
+    "keys": true
+  }
 }

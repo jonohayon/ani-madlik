@@ -1,11 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import menorah from '../assets/menorah-icon.png';
+import MapsPlace from 'material-ui/svg-icons/maps/place';
 
-export default class Marker extends Component {
-  render () {
-    return (
-      <img src={menorah} width={24} height={24} alt={'Menorah'} />
-    );
-  }
-}
+const Marker = () => <MapsPlace style={{ width: 32, height: 32, fill: '#F8333C' }} />;
+
+export default Marker;

@@ -1,4 +1,4 @@
-* { transition: all .3s ease-in-out; }
+*:not(body > div:nth-child(2)) { transition: all .3s ease-in-out; }
 
 .fab {
   position: fixed;

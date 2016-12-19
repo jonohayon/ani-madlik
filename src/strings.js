@@ -1,6 +1,9 @@
 export const strings = {
   addPlace: 'הוסף מקום',
-  searchAddress: 'חפש כתובת',
-  hint: 'רחוב דיזינגוף 234, תל אביב',
-  floatingLabel: 'כתובת'
+  floatingLabel: 'כתובת / מקום',
+  searchAddress: 'חפש',
+  addPlaceModal: 'בחר שם למקום',
+  addPlaceInput: 'שם המקום',
+  add: 'הוספה',
+  cancel: 'ביטול'
 };

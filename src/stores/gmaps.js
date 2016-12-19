@@ -3,21 +3,21 @@ import { createStore } from 'redux';
 function getPlaceInfo (p, ok, placeId) {
   return new Promise((resolve, reject) => {
     p.getDetails({ placeId }, (place, status) => {
-      if (status !== ok) return reject(`Status of request is not OK: ${status}`)
-      return resolve(place)
-    })
-  })
+      if (status !== ok) return reject(`Status of request is not OK: ${status}`);
+      return resolve(place);
+    });
+  });
 }
 
 function getPlaces (state, input) {
-  const { AutocompleteService, PlacesService, PlacesServiceStatus } = state.places
-  const s = new AutocompleteService()
-  const ps = new PlacesService(state.map)
+  const { AutocompleteService, PlacesService, PlacesServiceStatus } = state.places;
+  const s = new AutocompleteService();
+  const ps = new PlacesService(state.map);
   s.getQueryPredictions({ input }, (preds, status) => {
-    if (status !== PlacesServiceStatus.OK) return reject(`Status of request is not OK: ${status}`)
-    preds = preds.filter(p => p.place_id).map(p => getPlaceInfo(ps, PlacesServiceStatus.OK, p.place_id))
-    Promise.all(preds).then(res => store.dispatch({ type: 'PREDICTIONS', payload: res }))
-  })
+    if (status !== PlacesServiceStatus.OK) throw new Error(`Status of request is not OK: ${status}`);
+    const sorted = preds.filter(p => p.place_id).map(p => getPlaceInfo(ps, PlacesServiceStatus.OK, p.place_id));
+    Promise.all(sorted).then(res => store.dispatch({ type: 'PREDICTIONS', payload: res }));
+  });
 }
 
 function gmaps (state = {}, action) {
@@ -28,8 +28,8 @@ function gmaps (state = {}, action) {
     }
     case 'PREDICTIONS': return { places: state.places, map: state.map, preds: action.payload };
     case 'READY': {
-      const { maps, map } = action.payload
-      return { places: maps.places, map }
+      const { maps, map } = action.payload;
+      return { places: maps.places, map };
     }
     default: return state;
   }
