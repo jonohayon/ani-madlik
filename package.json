@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint . || exit 0",
     "test": "npm run lint && mocha",
-    "build": "webpack --progress --colors -p",
+    "build": "NODE_ENV=production webpack --progress --colors -p",
     "serve": "webpack-dev-server",
     "watch": "webpack --progress --colors --watch -p"
   },
