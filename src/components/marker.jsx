@@ -1,7 +1,35 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import truncate from 'truncate';
 
-import MapsPlace from 'material-ui/svg-icons/maps/place';
+import placeIcon from '../assets/place-icon.png';
 
-const Marker = () => <MapsPlace style={{ width: 32, height: 32, fill: '#F8333C' }} />;
+export default class Marker extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      active: false,
+      name: props.name
+    };
 
-export default Marker;
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle () { this.setState({ active: !this.state.active }); }
+
+  render () {
+    const className = this.state.active ? 'place-name active' : 'place-name';
+    return (
+      <div style={{ width: 32, height: 32, position: 'relative' }}>
+        <div className={className}>{truncate(this.state.name, 18)}</div>
+        <img
+          src={placeIcon}
+          style={{ height: '100%', fill: '#FF6700', cursor: 'pointer' }}
+          alt={'מיקום'}
+          onTouchTap={this.toggle}
+        />
+      </div>
+    );
+  }
+}
+
+Marker.propTypes = { name: PropTypes.string.isRequired };

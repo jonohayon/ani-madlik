@@ -11,12 +11,12 @@ injectTapEventPlugin(); // Inject dat tap event boiiii
 const muiTheme = getMuiTheme({
   fontFamily: '"Heebo", sans-serif',
   palette: {
-    primary1Color: '#F8333C',
+    primary1Color: '#FF6700',
     accent1Color: '#161925'
   },
   raisedButton: {
     secondaryColor: '#fff',
-    secondaryTextColor: '#F8333C'
+    secondaryTextColor: '#FF6700'
   },
   isRtl: true
 });

@@ -23,28 +23,6 @@
 
 .location-btn span { font-weight: 700 !important; }
 
-.search-marker {
-  width: 23px;
-  height: 23px;
-  border-radius: 24px;
-  background-color: #fff;
-  color: #F8333C;
-  border: 3px solid #F8333C;
-  font: {
-    size: 17px;
-    weight: 700;
-    family: 'Heebo', sans-serif;
-  }
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 2px 5px 1px darken(#d8d8d8, 10%);
-
-  &.active {
-    background-color: #d8d8d8;
-  }
-}
-
 .place-info {
   display: flex;
   flex: {
@@ -60,4 +38,26 @@
     color: #757575;
     line-height: 1.5;
   }
+}
+
+.place-name {
+  position: absolute;
+  left: calc(50% - 2px);
+  min-width: 85px;
+  min-height: 25px;
+  transform: translateY(-120%) translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #212121;
+  color: #F5F5F5;
+  font-family: 'Heebo', sans-serif;
+  font-size: 12px;
+  border-radius: 2px;
+  padding: 7px 5px;
+  text-align: center;
+  opacity: 0;
+  transition: all .2s ease-out;
+
+  &.active { opacity: 1; }
 }

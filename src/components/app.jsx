@@ -13,6 +13,26 @@ import locations from '../stores/locations.js';
 
 import '../style/style.scss';
 
+function createMapOptions () {
+  return {
+    styles: [{
+      featureType: 'poi',
+      elementType: 'labels.text',
+      stylers: [{ visibility: 'off' }]
+    }, {
+      featureType: 'poi.business',
+      stylers: [{ visibility: 'off' }]
+    }, {
+      featureType: 'road',
+      elementType: 'labels.icon',
+      stylers: [{ visibility: 'off' }]
+    }, {
+      featureType: 'transit',
+      stylers: [{ visibility: 'off' }]
+    }]
+  };
+}
+
 export default class Application extends Component {
   constructor () {
     super();
@@ -44,10 +64,13 @@ export default class Application extends Component {
           onGoogleApiLoaded={({ map, maps }) => gmaps.dispatch({ type: 'READY', payload: { map, maps } })}
           yesIWantToUseGoogleMapApiInternals
           center={ilPoint}
-          zoom={8}
+          zoom={9}
           className={'gmap'}
+          options={createMapOptions}
         >
-          {this.state.locations.map(l => <Marker lat={l.latitude} lng={l.longitude} />)}
+          {this.state.locations.map(l =>
+            <Marker lat={l.latitude} lng={l.longitude} name={l.name} />
+          )}
         </GoogleMap>
         <FloatingActionButton className={'fab'} onTouchTap={this.openDrawer}>
           <MapsAddLocation />
