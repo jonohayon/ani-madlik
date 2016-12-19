@@ -1,7 +1,7 @@
 import 'reset.css';
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import { MuiThemeProvider, getMuiTheme } from 'material-ui/styles';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Application from './components/app.jsx';
@@ -27,7 +27,7 @@ const AppComponent = () =>
   </MuiThemeProvider>;
 
 
-ReactDOM.render(
+render(
   <AppComponent />,
   document.getElementById('app-container')
 );

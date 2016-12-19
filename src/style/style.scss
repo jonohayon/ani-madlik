@@ -1,31 +1,4 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: {
-    direction: column;
-    wrap: wrap;
-  }
-  width: 100%;
-  height: 100vh;
-}
-
-h1, h2 { font-family: 'Roboto', sans-serif; }
-
-h1 {
-  font: {
-    size: 50px;
-    weight: 700;
-  }
-}
-
-h2 {
-  font-size: 25px;
-  width: 90%;
-  max-width: 550px;
-  margin-top: 15px;
-  text-align: center;
-}
+* { transition: all .3s ease-in-out; }
 
 .fab {
   position: fixed;
@@ -33,12 +6,11 @@ h2 {
   bottom: 20px;
 }
 
-.gmnoprint { display: none !important; }
+.gmnoprint, .gm-fullscreen-control { display: none !important; }
 
 .rtl { direction: rtl; }
 
 .location-btn-cont {
-  height: calc(100% - 64px);
   padding-top: 5px;
   display: flex;
   justify-content: flex-start;
@@ -52,17 +24,40 @@ h2 {
 .location-btn span { font-weight: 700 !important; }
 
 .search-marker {
-  width: 24px;
-  height: 24px;
+  width: 23px;
+  height: 23px;
   border-radius: 24px;
   background-color: #fff;
   color: #F8333C;
-  border: 2px solid #F8333C;
+  border: 3px solid #F8333C;
   font: {
     size: 17px;
+    weight: 700;
     family: 'Heebo', sans-serif;
   }
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 2px 5px 1px darken(#d8d8d8, 10%);
+
+  &.active {
+    background-color: #d8d8d8;
+  }
+}
+
+.place-info {
+  display: flex;
+  flex: {
+    direction: column;
+    wrap: wrap;
+  }
+  min-height: none !important;
+  padding: 12px 0 !important;
+
+  h1 { line-height: 1.3; }
+  h3 {
+    font-size: 12px;
+    color: #757575;
+    line-height: 1.5;
+  }
 }

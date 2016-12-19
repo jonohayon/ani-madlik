@@ -58,6 +58,10 @@ module.exports = {
     }
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.ProvidePlugin({
+      Promise: 'bluebird',
+      gapiKey: path.join(__dirname, 'api-key.js')
+    })
   ]
 };
